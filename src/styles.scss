@@ -11,32 +11,35 @@ $colors:
   #8e44ad,
   #2c3e50;
 
-#card-container {
+* {
     padding: 0;
     margin: 0;
+    list-style: none;
+}
 
+#card-container {
     width: 320px;
     margin-right: auto;
     margin-left: auto;
+
+    color: white;
+    font-family: 'Avenir', Futura, Helvetica, sans-serif;
 }
 
 .card {
     width: 150px;
     height: 150px;
-    margin: 5px;
-    list-style: none;
-    float: left;
+    font-size: 100px;
 
+    float: left;
+    margin: 5px;
     border-radius: 10px;
 
-    color: white;
-    font-family: 'Avenir', Futura, Helvetica, sans-serif;
-    font-size: 100px;
+    display: table;
     text-align: center;
 
     p {
-        display: inline;
-        margin: 0;
+        display: table-cell;
         vertical-align: middle;
 
         &.ambiguous {
@@ -44,6 +47,7 @@ $colors:
         }
     }
 
+    /* card background colors */
     @for $i from 1 through length($colors) {
         &:nth-child(#{$i}) {
             background-color: nth($colors, $i);
@@ -52,7 +56,19 @@ $colors:
     &:nth-child(n + #{length($colors)}) {
         background-color: nth($colors, length($colors));
     }
+}
 
-    &.selected {
+.card.selected {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+
+    p {
+        font-size: 300px;
     }
 }

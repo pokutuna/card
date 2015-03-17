@@ -4,9 +4,7 @@ var App = (function () {
         var cardData = this.constructCardData();
         new Vue({
             el: '#card-container',
-            data: {
-                cards: cardData
-            }
+            data: { cards: cardData }
         });
     }
     App.isAmbiguousString = function (str) {
@@ -24,7 +22,7 @@ var App = (function () {
         });
     };
     App.defaultCards = [
-        '1/2',
+        '?',
         '1',
         '2',
         '3',

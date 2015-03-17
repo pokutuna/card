@@ -8,7 +8,7 @@ interface CardData {
 
 class App {
     static defaultCards: Array<string> = [
-        '1/2', '1', '2', '3', '5', '8', '13', '∞'
+        '?', '1', '2', '3', '5', '8', '13', '∞'
     ];
 
     static isAmbiguousString(str: string): boolean {
@@ -20,9 +20,7 @@ class App {
         var cardData = this.constructCardData();
         new Vue({
             el: '#card-container',
-            data: {
-                cards: cardData,
-            },
+            data: { cards: cardData },
         });
     }
 
