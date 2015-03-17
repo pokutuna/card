@@ -12,13 +12,25 @@ var App = (function () {
         return ambiguousPattern.test(str);
     };
     App.prototype.constructCardData = function () {
-        var cards = App.defaultCards;
+        var cards = this.cardsFromQueryParam() || App.defaultCards;
         return cards.map(function (c) {
             return {
                 text: c,
                 selected: false,
                 isAmbiguous: App.isAmbiguousString(c)
             };
+        });
+    };
+    App.prototype.cardsFromQueryParam = function () {
+        if (!(location.search.length > 1))
+            return null;
+        var cardParam = document.location.search.substring(1).split('&').filter(function (p) {
+            return /^cards=/.test(p);
+        })[0];
+        if (!cardParam)
+            return null;
+        return cardParam.split('=')[1].split(',').map(function (item) {
+            return decodeURIComponent(item);
         });
     };
     App.defaultCards = [

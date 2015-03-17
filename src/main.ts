@@ -7,7 +7,7 @@ interface CardData {
 }
 
 class App {
-    static defaultCards: Array<string> = [
+    static defaultCards: string[] = [
         '?', '1', '2', '3', '5', '8', '13', '∞'
     ];
 
@@ -24,8 +24,9 @@ class App {
         });
     }
 
-    constructCardData(): Array<CardData> {
-        var cards: Array<string> = App.defaultCards;
+    constructCardData(): CardData[] {
+        var cards: string[] = this.cardsFromQueryParam() || App.defaultCards;
+
         return cards.map(function(c: string): CardData {
             return {
                 text: c,
@@ -33,6 +34,16 @@ class App {
                 isAmbiguous: App.isAmbiguousString(c),
             }
         });
+    }
+
+    cardsFromQueryParam(): any { // (null | string[])
+        if (!(location.search.length > 1)) return null;
+        var cardParam = document.location.search.substring(1).split('&')
+            .filter(function(p) { return /^cards=/.test(p) })[0];
+        if (!cardParam) return null;
+        return cardParam.split('=')[1].split(',').map(
+            (item): string => { return decodeURIComponent(item) }
+        );
     }
 }
 
