@@ -19,7 +19,7 @@ gulp.task('typescript', function() {
 
 gulp.task('scss', function() {
     return gulp.src('src/**/*.scss')
-    .pipe(sass({ errorLogToConsole: true}))
+    .pipe(sass({ errLogToConsole: true}))
     .pipe(gulp.dest('build'));
 });
 
