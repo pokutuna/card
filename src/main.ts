@@ -8,11 +8,10 @@ interface CardData {
 
 class App {
     static defaultCards: Array<string> = [
-        '1', '2', '3', '5', '8', '13', '∞'
+        '1/2', '1', '2', '3', '5', '8', '13', '∞'
     ];
 
     constructor() {
-        console.log('hoge')
         var cardData = this.constructCardData();
         new Vue({
             el: '#card-container',

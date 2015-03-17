@@ -1,7 +1,6 @@
 /// <reference path="../DefinitelyTyped/vue/vue.d.ts" />
 var App = (function () {
     function App() {
-        console.log('hoge');
         var cardData = this.constructCardData();
         new Vue({
             el: '#card-container',
@@ -21,6 +20,7 @@ var App = (function () {
         });
     };
     App.defaultCards = [
+        '1/2',
         '1',
         '2',
         '3',
