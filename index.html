@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="build/styles.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.5/vue.min.js"></script>
     <script src="build/main.js"></script>
   </head>
   <body>
-    <h1 id="title">card</h1>
+    <ul id="card-container">
+      <li v-repeat="cards" v-on="click: selected = !selected" class="{{ selected ? &quot;selected&quot; : &quot;&quot; }} {{ isNumber ? &quot;num&quot; : &quot;not-num&quot; }}">{{ text }}</li>
+    </ul>
   </body>
 </html>

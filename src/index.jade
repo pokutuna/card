@@ -4,6 +4,11 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='build/styles.css')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.5/vue.min.js')
     script(src='build/main.js')
   body
-    h1#title card
+    ul#card-container
+      li(v-repeat='cards'
+         v-on='click: selected = !selected'
+         class='{{ selected ? "selected" : "" }} {{ isNumber ? "num" : "not-num" }}')
+        {{ text }}
