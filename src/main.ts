@@ -2,8 +2,8 @@
 
 interface CardData {
     text: string;
-    isNumber: boolean;
     selected: boolean;
+    isAmbiguous: boolean;
 }
 
 class App {
@@ -11,12 +11,17 @@ class App {
         '1/2', '1', '2', '3', '5', '8', '13', '∞'
     ];
 
+    static isAmbiguousString(str: string): boolean {
+        var ambiguousPattern = /^[698∞]+$/;
+        return ambiguousPattern.test(str);
+    }
+
     constructor() {
         var cardData = this.constructCardData();
         new Vue({
             el: '#card-container',
             data: {
-                cards: cardData
+                cards: cardData,
             },
         });
     }
@@ -26,8 +31,8 @@ class App {
         return cards.map(function(c: string): CardData {
             return {
                 text: c,
-                isNumber: !isNaN(parseInt(c)),
                 selected: false,
+                isAmbiguous: App.isAmbiguousString(c),
             }
         });
     }

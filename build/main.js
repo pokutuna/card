@@ -9,13 +9,17 @@ var App = (function () {
             }
         });
     }
+    App.isAmbiguousString = function (str) {
+        var ambiguousPattern = /^[698∞]+$/;
+        return ambiguousPattern.test(str);
+    };
     App.prototype.constructCardData = function () {
         var cards = App.defaultCards;
         return cards.map(function (c) {
             return {
                 text: c,
-                isNumber: !isNaN(parseInt(c)),
-                selected: false
+                selected: false,
+                isAmbiguous: App.isAmbiguousString(c)
             };
         });
     };

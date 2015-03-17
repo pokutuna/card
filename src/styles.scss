@@ -1,5 +1,58 @@
 @charset "UTF-8";
 
-#title {
-    color: teal;
+$colors:
+  #bdc3c7,
+  #2980b9,
+  #27ae60,
+  #16a085,
+  #f39c12,
+  #d35400,
+  #c0392b,
+  #8e44ad,
+  #2c3e50;
+
+#card-container {
+    padding: 0;
+    margin: 0;
+
+    width: 320px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    list-style: none;
+    float: left;
+
+    border-radius: 10px;
+
+    color: white;
+    font-family: 'Avenir', Futura, Helvetica, sans-serif;
+    font-size: 100px;
+    text-align: center;
+
+    p {
+        display: inline;
+        margin: 0;
+        vertical-align: middle;
+
+        &.ambiguous {
+            text-decoration: underline;
+        }
+    }
+
+    @for $i from 1 through length($colors) {
+        &:nth-child(#{$i}) {
+            background-color: nth($colors, $i);
+        }
+    }
+    &:nth-child(n + #{length($colors)}) {
+        background-color: nth($colors, length($colors));
+    }
+
+    &.selected {
+    }
 }

@@ -1,2 +1,44 @@
-#title {
-  color: teal; }
+#card-container {
+  padding: 0;
+  margin: 0;
+  width: 320px;
+  margin-right: auto;
+  margin-left: auto; }
+
+.card {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  list-style: none;
+  float: left;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Avenir', Futura, Helvetica, sans-serif;
+  font-size: 100px;
+  text-align: center; }
+  .card p {
+    display: inline;
+    margin: 0;
+    vertical-align: middle; }
+    .card p.ambiguous {
+      text-decoration: underline; }
+  .card:nth-child(1) {
+    background-color: #bdc3c7; }
+  .card:nth-child(2) {
+    background-color: #2980b9; }
+  .card:nth-child(3) {
+    background-color: #27ae60; }
+  .card:nth-child(4) {
+    background-color: #16a085; }
+  .card:nth-child(5) {
+    background-color: #f39c12; }
+  .card:nth-child(6) {
+    background-color: #d35400; }
+  .card:nth-child(7) {
+    background-color: #c0392b; }
+  .card:nth-child(8) {
+    background-color: #8e44ad; }
+  .card:nth-child(9) {
+    background-color: #2c3e50; }
+  .card:nth-child(n+9) {
+    background-color: #2c3e50; }
