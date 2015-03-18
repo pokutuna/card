@@ -9,7 +9,7 @@
   </head>
   <body>
     <ul id="card-container">
-      <li v-repeat="cards" v-on="click: selected = !selected" class="card {{ selected ? &quot;selected&quot; : &quot;&quot; }}">
+      <li v-repeat="cards" v-on="click: selected = !selected" role="button" class="card {{ selected ? &quot;selected&quot; : &quot;&quot; }}">
         <p class="{{ isAmbiguous ? &quot;ambiguous&quot;: &quot;&quot;}}">{{ text }}</p>
       </li>
     </ul>
