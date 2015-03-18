@@ -10,5 +10,6 @@ html(lang='en')
     ul#card-container
       li(v-repeat='cards'
          v-on='click: selected = !selected'
-         class='card {{ selected ? "selected" : "" }}')
+         class='card {{ selected ? "selected" : "" }}'
+         role='button')
         p(class='{{ isAmbiguous ? "ambiguous": ""}}') {{ text }}
